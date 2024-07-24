@@ -1,0 +1,57 @@
+/*
+Coderbyte coding challenge: Primes
+
+Have the function Primes(num) take the num parameter
+being passed and return the string true if the parameter is a prime number,
+otherwise return the string false. The range will be between 1 and 2^16.
+
+Sample test cases:
+
+Input:  4
+Output: "false"
+
+Input:  1709
+Output: "true"
+*/
+//Code for visual studio
+using System;
+
+namespace MyApp
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            prime();
+        }
+
+        static void prime()
+        {
+            int num = 1709; // Change this to test with different numbers
+            string result = "";
+
+            if (num <= 1)
+            {
+                result = "false";
+            }
+            else if (num == 2)
+            {
+                result = "true";
+            }
+            else
+            {
+                result = "true"; // Assume the number is prime initially
+                for (int i = 2; i <= Math.Sqrt(num); i++)
+                {
+                    if (num % i == 0)
+                    {
+                        result = "false";
+                        break; // No need to check further if a divisor is found
+                    }
+                }
+            }
+
+            Console.WriteLine(result);
+        }
+    }
+}
